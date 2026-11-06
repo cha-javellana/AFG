@@ -65,38 +65,84 @@
     var paused = false;
     var total = slides.length;
     var pointer = null;
+    var dots = [];
 
-    slides.forEach(function (_, i) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "reviews-dot";
-      dot.setAttribute("aria-label", "Show review " + (i + 1) + " of " + total);
-      dot.addEventListener("click", function () { go(i, true); });
-      dotsWrap.appendChild(dot);
-    });
-    var dots = Array.prototype.slice.call(dotsWrap.children);
+    function perView() {
+      var width = viewport.clientWidth;
+      if (width < 701) return 1;
+      if (width < 960) return 2;
+      return 3;
+    }
 
-    function go(nextIndex, fromUser) {
-      index = (nextIndex + total) % total;
-      track.style.transform = "translateX(" + (-index * 100) + "%)";
+    function maxIndex() {
+      return Math.max(0, total - perView());
+    }
+
+    function pageStarts() {
+      var step = perView();
+      var max = maxIndex();
+      var starts = [];
+      for (var i = 0; i < max; i += step) starts.push(i);
+      if (!starts.length || starts[starts.length - 1] !== max) starts.push(max);
+      return starts;
+    }
+
+    function rebuildDots() {
+      var starts = pageStarts();
+      var view = perView();
+      dotsWrap.innerHTML = "";
+      starts.forEach(function (start) {
+        var end = Math.min(total, start + view);
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "reviews-dot";
+        dot.setAttribute("aria-label", "Show reviews " + (start + 1) + " to " + end + " of " + total);
+        dot.addEventListener("click", function () { go(start, true); });
+        dotsWrap.appendChild(dot);
+      });
+      dots = Array.prototype.slice.call(dotsWrap.children);
+    }
+
+    function go(target, fromUser) {
+      var view = perView();
+      var max = maxIndex();
+      if (target > max) target = 0;
+      if (target < 0) target = max;
+      index = target;
+      track.style.setProperty("--reviews-per", String(view));
+      var card = slides[0].getBoundingClientRect().width;
+      var gap = parseFloat(window.getComputedStyle(track).columnGap) || 0;
+      track.style.transform = "translateX(" + (-index * (card + gap)) + "px)";
+      var end = Math.min(total, index + view);
       slides.forEach(function (slide, i) {
-        var active = i === index;
+        var active = i >= index && i < end;
         slide.setAttribute("aria-hidden", active ? "false" : "true");
-        slide.style.visibility = active ? "visible" : "hidden";
         if (active) slide.removeAttribute("inert");
         else slide.setAttribute("inert", "");
       });
+      var starts = pageStarts();
       dots.forEach(function (dot, i) {
-        if (i === index) dot.setAttribute("aria-current", "true");
+        if (starts[i] === index) dot.setAttribute("aria-current", "true");
         else dot.removeAttribute("aria-current");
       });
-      if (status && fromUser) status.textContent = "Review " + (index + 1) + " of " + total;
-      viewport.style.height = slides[index].offsetHeight + "px";
+      if (status && fromUser) {
+        status.textContent = "Showing reviews " + (index + 1) + " to " + end + " of " + total;
+      }
       if (fromUser) restart();
     }
-    window.addEventListener("resize", function () {
-      viewport.style.height = slides[index].offsetHeight + "px";
-    });
+
+    function advance(direction, fromUser) {
+      var view = perView();
+      var max = maxIndex();
+      if (direction > 0) {
+        if (index >= max) go(0, fromUser);
+        else go(Math.min(index + view, max), fromUser);
+      } else if (index <= 0) {
+        go(max, fromUser);
+      } else {
+        go(Math.max(index - view, 0), fromUser);
+      }
+    }
 
     function stop() {
       if (timer) {
@@ -107,7 +153,7 @@
 
     function start() {
       if (reduceMotion || paused || timer) return;
-      timer = setInterval(function () { go(index + 1, false); }, 8000);
+      timer = setInterval(function () { advance(1, false); }, 8000);
     }
 
     function restart() {
@@ -115,8 +161,18 @@
       start();
     }
 
-    prev.addEventListener("click", function () { go(index - 1, true); });
-    next.addEventListener("click", function () { go(index + 1, true); });
+    function relayout() {
+      var starts = pageStarts();
+      var snapped = 0;
+      starts.forEach(function (start) {
+        if (start <= index) snapped = start;
+      });
+      rebuildDots();
+      go(snapped, false);
+    }
+
+    prev.addEventListener("click", function () { advance(-1, true); });
+    next.addEventListener("click", function () { advance(1, true); });
 
     reviews.addEventListener("mouseenter", function () { paused = true; stop(); });
     reviews.addEventListener("mouseleave", function () { paused = false; start(); });
@@ -130,10 +186,10 @@
     reviews.addEventListener("keydown", function (event) {
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        go(index - 1, true);
+        advance(-1, true);
       } else if (event.key === "ArrowRight") {
         event.preventDefault();
-        go(index + 1, true);
+        advance(1, true);
       }
     });
     reviews.addEventListener("pointerdown", function (event) {
@@ -147,15 +203,16 @@
       var dy = event.clientY - pointer.y;
       pointer = null;
       if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
-      go(dx < 0 ? index + 1 : index - 1, true);
+      advance(dx < 0 ? 1 : -1, true);
     });
     reviews.addEventListener("pointercancel", function () { pointer = null; });
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) stop();
       else start();
     });
+    window.addEventListener("resize", relayout);
 
-    go(0, false);
+    relayout();
     start();
   }
 

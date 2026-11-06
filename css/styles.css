@@ -942,26 +942,27 @@ body { padding-bottom: 4.5rem; }
   position: relative;
 }
 .reviews-track {
-  display: block;
-  position: relative;
-  height: 100%;
+  --reviews-gap: 16px;
+  --reviews-per: 3;
+  display: flex;
+  align-items: stretch;
+  gap: var(--reviews-gap);
+  width: 100%;
   transition: transform 0.35s ease;
 }
-.reviews-track .review-card:first-child { visibility: visible; }
 .review-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  visibility: hidden;
+  position: relative;
+  flex: 0 0 calc((100% - (var(--reviews-per) - 1) * var(--reviews-gap)) / var(--reviews-per));
+  width: calc((100% - (var(--reviews-per) - 1) * var(--reviews-gap)) / var(--reviews-per));
+  min-width: 0;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 1.35rem 1.4rem 1.2rem;
+  padding: 1.15rem 1.15rem 1.05rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.7rem;
 }
 .review-top {
   display: flex;
@@ -988,15 +989,18 @@ body { padding-bottom: 4.5rem; }
 .review-quote {
   margin: 0;
   color: var(--ink);
-  font-size: 1.02rem;
-  line-height: 1.55;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-height: calc(1.5em * 7);
+  overflow: hidden;
 }
-.review-quote p { margin: 0 0 0.65rem; }
+.review-quote p { margin: 0 0 0.55rem; }
 .review-quote p:last-child { margin-bottom: 0; }
 .review-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 0.85rem;
+  margin-top: auto;
 }
 .review-name,
 .review-date {
@@ -1074,6 +1078,12 @@ body { padding-bottom: 4.5rem; }
   color: var(--ink-soft);
 }
 .reviews-fb:hover { color: var(--red); }
+@media (max-width: 959px) {
+  .reviews-track { --reviews-per: 2; }
+}
+@media (max-width: 700px) {
+  .reviews-track { --reviews-per: 1; }
+}
 @media (prefers-reduced-motion: reduce) {
   .reviews-track,
   .reviews-viewport { transition: none; }
