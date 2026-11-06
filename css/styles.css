@@ -866,17 +866,6 @@ p { margin: 0 0 1em; }
   display: block;
 }
 
-/* Exact NAP block in footer */
-.footer-nap {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 1.15rem;
-  margin-bottom: 1.15rem;
-  color: rgba(255,255,255,0.75);
-  font-size: 0.9rem;
-  line-height: 1.55;
-}
-.footer-nap p { margin: 0; }
-
 /* Room for FAB above footer content on mobile */
 body { padding-bottom: 4.5rem; }
 
@@ -918,8 +907,28 @@ body { padding-bottom: 4.5rem; }
   color: #cfe7ff;
 }
 
-.footer-list a[href*="facebook.com"],
-.footer-list a[href*="instagram.com"] {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.45rem 0 0;
+  padding: 0;
+  list-style: none;
 }
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.social-link svg { width: 18px; height: 18px; display: block; }
+.social-facebook { background: #1877F2; }
+.social-instagram { background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 55%, #6228d7 100%); }
+.site-footer .social-link,
+.site-footer .social-link:hover { color: #fff; }
+.social-link:hover { filter: brightness(1.08); }
+.contact-list .social-links { margin-top: 0.35rem; }
