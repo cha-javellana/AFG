@@ -575,66 +575,85 @@ p { margin: 0 0 1em; }
     gap: 1rem;
   }
 }
+.site-header:has(+ .xmas-band) { border-bottom: 0; }
 .xmas-band {
   position: relative;
   width: 100%;
   margin: 0;
-  padding: 4.25rem 1.25rem 3.25rem;
+  padding: 1.65rem 1rem 0.7rem;
   overflow: hidden;
-  text-align: center;
   color: #fff;
-  background:
-    radial-gradient(ellipse 28% 80% at 0% 100%, rgba(47, 122, 74, 0.28), transparent 70%),
-    radial-gradient(ellipse 28% 80% at 100% 100%, rgba(47, 122, 74, 0.28), transparent 70%),
-    linear-gradient(180deg, #4a1818 0%, #1c1010 100%);
+  background: linear-gradient(180deg, #4a1818 0%, #2a1212 100%);
 }
 .xmas-garland {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 78px;
+  height: 34px;
   display: block;
   pointer-events: none;
+  transform-origin: center top;
+  animation: xmas-sway 7s ease-in-out infinite;
 }
 .xmas-lights {
   position: absolute;
-  top: 34px;
+  top: 16px;
   left: 0;
   right: 0;
-  height: 16px;
+  height: 12px;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 8px 8px, #fff6d2 0 3px, transparent 4px),
-    radial-gradient(circle at 32px 8px, #e24b4b 0 3px, transparent 4px),
-    radial-gradient(circle at 56px 8px, #7dcea0 0 3px, transparent 4px);
-  background-size: 72px 16px;
+    radial-gradient(circle at 8px 6px, #fff6d2 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 32px 6px, #e24b4b 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 56px 6px, #7dcea0 0 2.5px, transparent 3.5px);
+  background-size: 72px 12px;
   background-repeat: repeat-x;
-  opacity: 0.9;
+  animation: xmas-twinkle 2.8s ease-in-out infinite;
 }
 .xmas-inner {
   position: relative;
   z-index: 1;
-  width: min(40rem, 100%);
+  width: min(1120px, 100%);
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
 }
-.xmas-kicker {
-  margin: 0 0 0.55rem;
-  color: var(--gold-light);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
+.xmas-copy { min-width: 0; }
 .xmas-band h2 {
-  margin: 0 0 0.65rem;
+  margin: 0;
   color: #fff;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.2;
 }
 .xmas-band p {
-  margin: 0 auto 1.15rem;
-  max-width: 36rem;
+  margin: 0.2rem 0 0;
+  max-width: 40rem;
   color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+.xmas-band .btn { flex: 0 0 auto; min-height: 40px; }
+@keyframes xmas-sway {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+@keyframes xmas-twinkle {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@media (max-width: 760px) {
+  .xmas-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xmas-garland,
+  .xmas-lights { animation: none; }
 }
 .contact-list {
   list-style: none;
