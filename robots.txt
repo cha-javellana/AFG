@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cha-javellana.github.io/AFG/sitemap.xml
+Sitemap: https://ashifrozengoods.com/sitemap.xml
