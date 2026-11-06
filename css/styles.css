@@ -575,22 +575,25 @@ p { margin: 0 0 1em; }
     gap: 1rem;
   }
 }
-.site-header:has(+ .xmas-band) { border-bottom: 0; }
 .xmas-band {
   position: relative;
   width: 100%;
   margin: 0;
-  padding: 1.65rem 1rem 0.7rem;
+  padding: 4.5rem 1.25rem 3rem;
   overflow: hidden;
+  text-align: center;
   color: #fff;
-  background: linear-gradient(180deg, #4a1818 0%, #2a1212 100%);
+  background:
+    radial-gradient(ellipse 28% 70% at 0% 100%, rgba(47, 122, 74, 0.28), transparent 70%),
+    radial-gradient(ellipse 28% 70% at 100% 100%, rgba(47, 122, 74, 0.28), transparent 70%),
+    linear-gradient(180deg, #4a1818 0%, #1c1010 100%);
 }
 .xmas-garland {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 34px;
+  height: 72px;
   display: block;
   pointer-events: none;
   transform-origin: center top;
@@ -598,44 +601,44 @@ p { margin: 0 0 1em; }
 }
 .xmas-lights {
   position: absolute;
-  top: 16px;
+  top: 30px;
   left: 0;
   right: 0;
-  height: 12px;
+  height: 16px;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 8px 6px, #fff6d2 0 2.5px, transparent 3.5px),
-    radial-gradient(circle at 32px 6px, #e24b4b 0 2.5px, transparent 3.5px),
-    radial-gradient(circle at 56px 6px, #7dcea0 0 2.5px, transparent 3.5px);
-  background-size: 72px 12px;
+    radial-gradient(circle at 8px 8px, #fff6d2 0 3px, transparent 4px),
+    radial-gradient(circle at 32px 8px, #e24b4b 0 3px, transparent 4px),
+    radial-gradient(circle at 56px 8px, #7dcea0 0 3px, transparent 4px);
+  background-size: 72px 16px;
   background-repeat: repeat-x;
   animation: xmas-twinkle 2.8s ease-in-out infinite;
 }
 .xmas-inner {
   position: relative;
   z-index: 1;
-  width: min(1120px, 100%);
+  width: min(42rem, 100%);
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1.25rem;
+  gap: 0.85rem;
 }
 .xmas-copy { min-width: 0; }
 .xmas-band h2 {
-  margin: 0;
+  margin: 0 0 0.55rem;
   color: #fff;
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
-  line-height: 1.2;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
 }
 .xmas-band p {
-  margin: 0.2rem 0 0;
-  max-width: 40rem;
+  margin: 0 auto;
+  max-width: 36rem;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 0.92rem;
-  line-height: 1.35;
+  font-size: 1.02rem;
+  line-height: 1.5;
 }
-.xmas-band .btn { flex: 0 0 auto; min-height: 40px; }
+.xmas-band .btn { min-height: 46px; }
 @keyframes xmas-sway {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(2px); }
@@ -643,13 +646,6 @@ p { margin: 0 0 1em; }
 @keyframes xmas-twinkle {
   0%, 100% { opacity: 0.55; }
   50% { opacity: 1; }
-}
-@media (max-width: 760px) {
-  .xmas-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.55rem;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .xmas-garland,
