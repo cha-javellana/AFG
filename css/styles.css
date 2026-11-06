@@ -502,12 +502,18 @@ p { margin: 0 0 1em; }
 }
 .prose h2 { margin-top: 1.8rem; }
 .about-advocacy {
-  margin: 1.15rem 0 1.35rem;
+  display: block;
+  margin: 1.15rem auto 1.35rem;
   max-width: 28rem;
+  text-align: center;
 }
 .about-advocacy img {
+  display: block;
   width: 100%;
+  max-width: 28rem;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
