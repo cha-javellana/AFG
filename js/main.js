@@ -57,7 +57,8 @@
     var slides = Array.prototype.slice.call(reviews.querySelectorAll(".review-card"));
     var prev = reviews.querySelector(".reviews-prev");
     var next = reviews.querySelector(".reviews-next");
-    var dotsWrap = reviews.querySelector(".reviews-dots");
+    var countCurrent = reviews.querySelector(".reviews-count-current");
+    var countTotal = reviews.querySelector(".reviews-count-total");
     var status = reviews.querySelector(".reviews-status");
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var index = 0;
@@ -65,7 +66,6 @@
     var paused = false;
     var total = slides.length;
     var pointer = null;
-    var dots = [];
 
     function perView() {
       var width = viewport.clientWidth;
@@ -87,20 +87,13 @@
       return starts;
     }
 
-    function rebuildDots() {
+    function pagePosition() {
       var starts = pageStarts();
-      var view = perView();
-      dotsWrap.innerHTML = "";
-      starts.forEach(function (start) {
-        var end = Math.min(total, start + view);
-        var dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "reviews-dot";
-        dot.setAttribute("aria-label", "Show reviews " + (start + 1) + " to " + end + " of " + total);
-        dot.addEventListener("click", function () { go(start, true); });
-        dotsWrap.appendChild(dot);
-      });
-      dots = Array.prototype.slice.call(dotsWrap.children);
+      var page = 1;
+      for (var i = 0; i < starts.length; i++) {
+        if (starts[i] <= index) page = i + 1;
+      }
+      return { page: page, pages: starts.length };
     }
 
     function go(target, fromUser) {
@@ -120,13 +113,11 @@
         if (active) slide.removeAttribute("inert");
         else slide.setAttribute("inert", "");
       });
-      var starts = pageStarts();
-      dots.forEach(function (dot, i) {
-        if (starts[i] === index) dot.setAttribute("aria-current", "true");
-        else dot.removeAttribute("aria-current");
-      });
+      var position = pagePosition();
+      if (countCurrent) countCurrent.textContent = String(position.page);
+      if (countTotal) countTotal.textContent = String(position.pages);
       if (status && fromUser) {
-        status.textContent = "Showing reviews " + (index + 1) + " to " + end + " of " + total;
+        status.textContent = "Page " + position.page + " of " + position.pages + ". Showing reviews " + (index + 1) + " to " + end + " of " + total + ".";
       }
       if (fromUser) restart();
     }
@@ -167,7 +158,6 @@
       starts.forEach(function (start) {
         if (start <= index) snapped = start;
       });
-      rebuildDots();
       go(snapped, false);
     }
 
