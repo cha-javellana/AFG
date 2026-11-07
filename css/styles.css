@@ -868,6 +868,7 @@ p { margin: 0 0 1em; }
   .hero-grid, .dual-col, .footer-grid, .mv-grid, .teaser, .visit-grid, .delivery-grid {
     grid-template-columns: 1fr;
   }
+  .hero-panel { display: none; }
   .visit-grid .teaser {
     height: auto;
     padding: 1.85rem 1.4rem;
