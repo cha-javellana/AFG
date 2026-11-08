@@ -206,4 +206,15 @@
     start();
   }
 
+  var deliveryCta = document.getElementById("delivery-cta");
+  var messengerFab = document.querySelector(".messenger-fab");
+  if (deliveryCta && messengerFab && "IntersectionObserver" in window) {
+    var deliveryWatch = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        messengerFab.classList.toggle("is-hidden", entry.isIntersecting);
+      });
+    }, { rootMargin: "0px 0px -64px 0px", threshold: 0.4 });
+    deliveryWatch.observe(deliveryCta);
+  }
+
 })();
