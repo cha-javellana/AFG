@@ -609,6 +609,58 @@ p { margin: 0 0 1em; }
   font-size: 0.94rem;
 }
 .delivery-copy .btn { align-self: flex-start; }
+.faq-list {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 46rem;
+}
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 52px;
+  padding: 0.9rem 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: -0.2rem;
+  border-right: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+  transform: rotate(45deg);
+}
+.faq-item[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item[open] summary::after {
+  margin-top: 0.2rem;
+  transform: rotate(-135deg);
+}
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+.faq-item p {
+  margin: 0;
+  padding: 0.95rem 1.15rem 1.15rem;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
 .panel {
   background: var(--card);
   border: 1px solid var(--line);
