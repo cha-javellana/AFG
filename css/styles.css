@@ -251,6 +251,7 @@ p { margin: 0 0 1em; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; }
 .hero-panel {
   position: relative;
+  align-self: stretch;
   border-radius: 18px;
   overflow: hidden;
   min-height: 380px;
@@ -258,11 +259,18 @@ p { margin: 0 0 1em; }
   background: #2a1212;
   border: 1px solid rgba(28, 20, 18, 0.08);
 }
+.hero-panel picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
 .hero-panel img {
   width: 100%;
   height: 100%;
   min-height: 380px;
   object-fit: cover;
+  object-position: center 32%;
 }
 .hero-badge {
   position: absolute;
