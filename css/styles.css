@@ -509,6 +509,78 @@ p { margin: 0 0 1em; }
   max-width: 42rem;
 }
 .prose h2 { margin-top: 1.8rem; }
+.prose h3 { margin-top: 1.25rem; margin-bottom: 0.4rem; color: var(--red-dark); font-size: 1.15rem; }
+.guide-callout,
+.guide-takeaways,
+.guide-nap {
+  background: var(--cream);
+  border: 1px solid rgba(201, 162, 39, 0.55);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.25rem;
+  margin: 0 0 1.35rem;
+}
+.guide-callout p:last-child,
+.guide-takeaways ul,
+.guide-nap p:last-child { margin-bottom: 0; }
+.guide-kicker {
+  margin: 0 0 0.4rem;
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.guide-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0 1.35rem;
+}
+.guide-products figure { margin: 0; }
+.guide-products img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.guide-products figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.guide-dl { margin: 0.5rem 0 1.2rem; }
+.guide-dl dt { font-weight: 700; color: var(--red-dark); }
+.guide-dl dd { margin: 0.15rem 0 0.8rem; }
+.guide-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.85rem;
+  color: inherit;
+  text-decoration: none;
+  max-width: 42rem;
+}
+.guide-card:hover { color: inherit; border-color: var(--gold); }
+.guide-card img {
+  width: 140px;
+  height: 105px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.guide-card h2 { margin: 0 0 0.35rem; font-size: 1.25rem; color: var(--red-dark); }
+.guide-card p { margin: 0; color: var(--ink-soft); }
+@media (max-width: 560px) {
+  .guide-products,
+  .guide-card { grid-template-columns: 1fr; }
+  .guide-card img { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+}
 .about-advocacy {
   display: block;
   margin: 1.15rem auto 1.35rem;
