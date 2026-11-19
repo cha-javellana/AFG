@@ -665,10 +665,22 @@ p { margin: 0 0 1em; }
 }
 .faq-item p {
   margin: 0;
-  padding: 0.95rem 1.15rem 1.15rem;
+  padding: 0.95rem 1.15rem 0.35rem;
   color: var(--ink-soft);
   max-width: 65ch;
 }
+.faq-item p:last-child { padding-bottom: 1.15rem; }
+.faq-item ul,
+.faq-item ol {
+  margin: 0;
+  padding: 0.85rem 1.15rem 1.15rem 2.4rem;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+.faq-item p + ul,
+.faq-item p + ol { padding-top: 0.15rem; }
+.faq-item li { margin: 0.3rem 0; line-height: 1.45; }
+.faq-item a { font-weight: 700; }
 .panel {
   background: var(--card);
   border: 1px solid var(--line);
