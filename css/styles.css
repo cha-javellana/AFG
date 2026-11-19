@@ -1293,10 +1293,9 @@ body { padding-bottom: 4.5rem; }
 .review-quote {
   margin: 0;
   color: var(--ink);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  max-height: calc(1.5em * 7);
-  overflow: hidden;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  overflow: visible;
 }
 .review-quote p { margin: 0 0 0.55rem; }
 .review-quote p:last-child { margin-bottom: 0; }
@@ -1432,6 +1431,7 @@ body { padding-bottom: 4.5rem; }
 }
 @media (max-width: 700px) {
   .reviews-track { --reviews-per: 1; }
+  .review-quote { font-size: 0.875rem; line-height: 1.4; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reviews-track,
