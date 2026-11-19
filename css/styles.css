@@ -681,6 +681,16 @@ p { margin: 0 0 1em; }
 .faq-item p + ol { padding-top: 0.15rem; }
 .faq-item li { margin: 0.3rem 0; line-height: 1.45; }
 .faq-item a { font-weight: 700; }
+@media (min-width: 900px) {
+  .faq-list {
+    max-width: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(8, auto);
+    grid-auto-flow: column;
+    align-items: start;
+    column-gap: 1rem;
+  }
+}
 .panel {
   background: var(--card);
   border: 1px solid var(--line);
