@@ -1,12 +1,13 @@
 # Guide photo credits
 
-These photos are stock images. They do not show products from Ashi's Frozen Goods.
+Real product photos of Ashi's Frozen Goods packs are stored in `/images/` (`tuna-sashimi.jpg` and `tuna-saku-bar.jpg`) and are not stock images.
 
-| File | Subject | Photographer | License | Photo page |
+The only stock photo still used on the sashimi guide is below. It does not show an Ashi's Frozen Goods product.
+
+| File | What it shows | Photographer | License | Photo page |
 | --- | --- | --- | --- | --- |
-| tuna-sashimi-plate.jpg | Sliced tuna sashimi on a plate | RDNE Stock project | Pexels License | https://www.pexels.com/photo/garnishing-sashimi-on-a-plate-10432863/ |
-| tuna-loin.jpg | Raw tuna loin | RDNE Stock project | Pexels License | https://www.pexels.com/photo/fish-fillet-in-hands-10432847/ |
-| salmon-sashimi.jpg | Salmon sashimi on a plate | elif tekkaya | Pexels License | https://www.pexels.com/photo/fresh-salmon-sashimi-on-a-plate-5677125/ |
-| home-sashimi-plate.jpg | Fish with soy sauce and chopsticks | Valeria Boltneva | Pexels License | https://www.pexels.com/photo/blue-plate-of-sashimi-rolls-chopsticks-soy-sauce-bowl-and-a-glass-24604650/ |
+| tuna-steak-ice.jpg | A deep red raw tuna steak on crushed ice | Deane Bayas | Pexels License | https://www.pexels.com/photo/tuna-meat-in-close-up-shot-14062112/ |
 
 Pexels License: https://www.pexels.com/license/
+
+Removed after review because they showed salmon, pink fish, or mixed seafood rather than clearly deep-red tuna: `tuna-sashimi-plate.jpg` (RDNE Stock project), `tuna-loin.jpg` (RDNE Stock project), `salmon-sashimi.jpg` (elif tekkaya), and `home-sashimi-plate.jpg` (Valeria Boltneva).
