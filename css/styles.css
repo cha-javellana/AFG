@@ -786,6 +786,7 @@ p { margin: 0 0 1em; }
   padding: 1.5rem;
   box-shadow: var(--shadow);
 }
+.panel h2,
 .panel h3 { margin-top: 0; font-size: 1.2rem; }
 .mv-grid {
   display: grid;
@@ -799,10 +800,59 @@ p { margin: 0 0 1em; }
   padding: 1.4rem 1.35rem;
   box-shadow: var(--shadow);
 }
+.mv-card h2,
 .mv-card h3 {
   color: var(--red);
   font-size: 1.15rem;
   margin-bottom: 0.55rem;
+}
+.thaw-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  max-width: 42rem;
+}
+.thaw-list li { margin: 0.45rem 0; }
+.watch-block { margin: 1.4rem 0 0.4rem; }
+.watch-kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.watch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+.watch-item {
+  margin: 0;
+  width: min(100%, 320px);
+}
+.watch-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: #1a1212;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.watch-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.watch-item figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+@media (min-width: 800px) {
+  .watch-row { justify-content: flex-start; }
 }
 .mv-card p { margin: 0; color: var(--ink-soft); }
 .teaser {

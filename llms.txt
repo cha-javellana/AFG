@@ -1,11 +1,11 @@
 # Ashi's Frozen Goods
 
-> Ashi's Frozen Goods is a specialty frozen seafood shop in Pavia, Iloilo. It sells GenSan tuna, salmon, sashimi, and imported steaks for households and food businesses. Customers can visit the shop to pick up or send an order on Messenger.
+> Ashi's Frozen Goods is a specialty frozen seafood shop in Pavia, Iloilo. It sells GenSan tuna, salmon, sashimi, and imported steaks for Iloilo households and home cooks. Tuna is sourced from General Santos, and packs are vacuum sealed. Customers can visit the shop, message an order on Messenger, or order on GrabMart.
 
 ## Pages
 
 - [Home](https://ashifrozengoods.com/): Shop overview, Maxim delivery, customer reviews, and how to order.
-- [Menu](https://ashifrozengoods.com/menu/): Photo-and-price list for tuna, processed tuna, salmon, and imported steaks.
+- [Menu](https://ashifrozengoods.com/menu/): Photo-and-price list for tuna, processed tuna, salmon, imported steaks, and in-store sushi add-ons, plus thawing notes.
 - [About](https://ashifrozengoods.com/about/): What the shop sells, the shop background, and how to buy.
 - [Contact](https://ashifrozengoods.com/contact/): Address, hours, phone, email, map, and Messenger.
 - [Guides](https://ashifrozengoods.com/guides/): Articles about buying sashimi and other frozen seafood in Iloilo.
@@ -13,9 +13,11 @@
 
 ## Key facts
 
-- Sold: GenSan tuna, including panga, sashimi, saku, and steaks, plus processed tuna favorites. Salmon sashimi, loin, steaks, fillets, and belly. Imported USDA, Brazilian, Australian, and Japanese wagyu steak cuts.
+- Sold: GenSan tuna, including panga, sashimi, saku, and steaks, plus processed tuna favorites. Salmon sashimi, loin, steaks, fillets, and belly. Imported USDA, Brazilian, Australian, and Japanese wagyu steak cuts. Wasabi and sushi soy sauce are available in store.
 - Location: Door 4, AC Arcade Building, Felix Gorriceta Jr. Avenue, Pavia, 5001 Iloilo, in Brgy. Pandac. Open daily from 10:00 AM to 7:00 PM.
-- Order: Message the shop on Messenger at https://m.me/ashifrozengoods, order on GrabMart at https://r.grab.com/o/6n6B3mAr, or visit the shop to pick up.
+- Order: Message the shop on Messenger at https://m.me/ashifrozengoods, order on GrabMart at https://r.grab.com/o/6n6B3mAr, or visit the shop to pick up. There is no minimum order.
+- Payment: Online bank transfer, GCash, and cash on delivery (COD). Card payments are accepted in store only.
 - Phone: 0945-962-2304
 - Email: ashifrozengoods@gmail.com
 - Delivery: The shop will book Maxim. Send the delivery address. A screenshot of the pinned location is preferred. A delivery fee applies, based on the Maxim quote for that trip.
+- A portion of sales supports animal shelters and community feeding in Iloilo.
