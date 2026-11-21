@@ -557,6 +557,7 @@ p { margin: 0 0 1em; }
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: 1rem;
+  margin-bottom: 1rem;
   align-items: center;
   background: var(--card);
   border: 1px solid var(--line);
